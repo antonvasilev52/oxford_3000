@@ -1,0 +1,16 @@
+<head>
+  <title>Results</title>
+  <%= erb :header %>
+
+</head>
+
+<body>
+<h3>Your results</h3>
+<p>Right answers: <%=$right_answers %> (<%=$right_answers.to_f/4 * 100 %>%)</p>
+<p>Wrong answers: <%=$wrong_answers %></p>
+
+<form method="post" action="/">
+  <button name='reset' type="submit" value='true'>Get back</button>
+</form>
+
+</body>

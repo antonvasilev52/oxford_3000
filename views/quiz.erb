@@ -1,0 +1,34 @@
+<head>
+  <title>Merriam-Webster</title>
+  <%= erb :header %>
+</head>
+
+
+<body>
+<h2><%= $mode_name %></h2>
+
+<form method="post" action="/quiz">
+  <h4><%= $word['word'] %></h4>
+
+  <% $arr.shuffle! %>
+  <input type="radio" id="first" name="definition" value='<%= $scope[$arr[0]]['definition']%>' required>
+  <label for="first"><%= $scope[$arr[0]]['definition']%></label><br>
+
+  <input type="radio" id="second" name="definition" value='<%= $scope[$arr[1]]['definition']%>'>
+  <label for="second"><%= $scope[$arr[1]]['definition']%></label><br>
+
+  <input type="radio" id="third" name="definition" value='<%= $scope[$arr[2]]['definition']%>'>
+  <label for="third"><%= $scope[$arr[2]]['definition']%></label><br>
+
+  <input type="radio" id="fourth" name="definition" value='<%= $scope[$arr[3]]['definition']%>'>
+  <label for="fourth"><%= $scope[$arr[3]]['definition']%></label><br><br>
+
+
+  <input type="submit" value="Submit">
+</form>
+
+<!--
+<p>Here: <%=$right_definition %></p> -->
+<p>Right answers: <%=$right_answers %></p>
+<p>Wrong answers: <%=$wrong_answers %></p>
+</body>

@@ -1,0 +1,23 @@
+<head>
+  <title>Merriam-Webster</title></head>
+  <%= erb :header %>
+<body>
+
+<h2>Checking your knowledge of Oxford 3000 words</h2>
+<p><a href="https://www.oxfordlearnersdictionaries.com/about/oxford3000" target="_blank">Oxford 3000</a> is a list of the 3000 most important words to learn in English.</p>
+<p>Select the check type:</p>
+<form method="post" action="/">
+
+  <input type="radio" id="dictionary" name="mode" value='dictionary' required>
+  <label for="dictionary">Dictionary definitions</label><br>
+
+  <input type="radio" id="thesaurus" name="mode" value='thesaurus' >
+  <label for="thesaurus">Thesaurus definitions</label><br>
+
+  <input type="radio" id="synonyms" name="mode" value='synonyms'>
+  <label for="synonyms">Synonyms</label><br><br>
+
+  <input type="submit" value="Go!">
+</form>
+
+</body>
