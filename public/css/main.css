@@ -26,7 +26,7 @@ h4 {
 }
 
 input, button {
-   background-color: #d6aa71;
+   background-color: #cfd4bf;
    border-radius: 5px;
    font-size: 14px;
 
@@ -34,7 +34,7 @@ input, button {
 
 input:hover, button:hover {
    cursor: pointer;
-   background: #deb887;
+   background: #c2c7ad;
    box-shadow: inset 6px 6px 11px #c8a67a,
    inset -6px -6px 11px #f4ca95;
 }
