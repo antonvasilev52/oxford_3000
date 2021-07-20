@@ -18,5 +18,5 @@ The Oxford_3000 app uses:
  :microphone: Web framework: Sinatra 2.1.0  
  :tiger2: Web server: Puma 5.3.2 ("Sweetnighter")  
  :books: Definitions from Merriam-Webster's Collegiate® Dictionary and Merriam-Webster's Collegiate® Thesaurus using [Merriam-Webster API](https://dictionaryapi.com/products/index)  
- :art: Background image: a photo from [Unsplash](https://unsplash.com/photos/3ym6i13Y9LU) by Mike Tinnion
+ :art: Background image: a photo from [Unsplash](https://unsplash.com/photos/3ym6i13Y9LU) by Mike Tinnion  
 :gem: IDE: RubyMine
