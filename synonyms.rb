@@ -39,7 +39,7 @@ bad_words = []
   end
   }
 
-second = $oxford[1001..1100]
+second = $oxford[1101..1300]
 
 for i in second do
   search_definitions.call(i)
