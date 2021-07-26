@@ -35,15 +35,16 @@ bad_words = []
     bad_words << word
   elsif definition['meta']['ants'].length == 0
     puts "#{word}: ants empty"
-    definition = response_hash['def'][0]['sseq'][0][0][1]['near_list'][0][0]['wd']
-    word_array << {'word' => word, 'definition' => definition}
+    #    definition = response_hash['def'][0]['sseq'][0][0][1]['near_list'][0][0]['wd']
+    bad_words << word
+    # word_array << {'word' => word, 'definition' => definition}
   else
     puts word
   word_array << {'word' => word, 'definition' => definition['meta']['ants'][0][0]}
   end
   }
 
-second = $oxford[2..20] # скопировал до 20
+second = $oxford[21..100] # скопировал до 20
 
 for i in second do
   search_definitions.call(i)

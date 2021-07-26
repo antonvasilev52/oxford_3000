@@ -23,7 +23,7 @@ word_array = []
   response_hash = parsed_json[0]
 
 bad_words = []
-  definition = response_hash['shortdef'][0]
+  definition = response_hash['meta']['ants']
 if definition.nil?
   bad_words << word
 else

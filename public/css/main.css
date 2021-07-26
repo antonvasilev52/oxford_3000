@@ -38,3 +38,10 @@ input:hover, button:hover {
    box-shadow: inset 6px 6px 11px #c8a67a,
    inset -6px -6px 11px #f4ca95;
 }
+
+img {
+   width: 20%;
+   position: relative;
+   left: 70%;
+   top: 100px;
+}

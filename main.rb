@@ -26,8 +26,8 @@ post '/' do
   when 'synonyms'
     $scope = $thesaurus_synonyms
     $mode_name = 'Thesaurus synonyms'
-  when
-    $scope = $scope = $definitions
+  when 'dictionary'
+    $scope = $definitions
     $mode_name = 'Dictionary definitions'
   end
 
@@ -37,7 +37,7 @@ end
 get '/quiz' do
   $arr = []
   def unique_random
-    random_number = rand(300)
+    random_number = rand(2999)
     until $arr.length > 4
       if $arr.include?(random_number)
         random_number = rand(300)
