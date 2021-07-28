@@ -1,3 +1,3 @@
 # config.ru
-require './hello_world.rb'
+require './main.rb'
 run Sinatra::Application
