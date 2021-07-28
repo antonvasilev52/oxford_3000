@@ -1,10 +1,10 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
-require './definitions'
-require './thesaurus_definitions'
-require './thesaurus_synonyms'
-require './thesaurus_antonyms'
+require './dictionaries/definitions'
+require './dictionaries/thesaurus_definitions'
+require './dictionaries/thesaurus_synonyms'
+require './dictionaries/thesaurus_antonyms'
 
 $right_answers = 0
 $wrong_answers = 0
