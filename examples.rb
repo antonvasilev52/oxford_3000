@@ -27,24 +27,25 @@ bad_words = []
 
   response_hash = parsed_json[0]
 
-  definition = response_hash
+  functional_label = response_hash['fl']
+  definition = response_hash['def'][0]['sseq'][0][0][1]['dt']
 
 
-  if definition['meta'].nil?
-    puts "#{word}: no meta"
+  if definition.nil?
+    puts "#{word}: no examples"
     bad_words << word
-  elsif definition['meta']['ants'].length == 0
-    puts "#{word}: ants empty"
-    #    definition = response_hash['def'][0]['sseq'][0][0][1]['near_list'][0][0]['wd']
+  elsif response_hash['def'][0]['sseq'][0][0][1]['dt'].length < 2
+    puts "#{word}: no vis"
     bad_words << word
-    # word_array << {'word' => word, 'definition' => definition}
   else
     puts word
-  word_array << {'word' => word, 'definition' => definition['meta']['ants'][0][0]}
+    definition = definition[1][1][0]['t']
+    beauty_definition = definition.gsub(/{it}.*{\/it}/, "<a #{functional_label}>")
+    word_array << {'word' => word, 'part' => functional_label, 'definition' => beauty_definition}
   end
   }
 
-second = $oxford[401..600]
+second = $oxford[1..20] # take N..M first words from Oxford 3000
 
 for i in second do
   search_definitions.call(i)

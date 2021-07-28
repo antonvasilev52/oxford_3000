@@ -21,15 +21,16 @@ word_array = []
 
   #puts parsed_json
   response_hash = parsed_json[0]
+  functional_label = response_hash['fl']
 
 bad_words = []
-  definition = response_hash['meta']['ants']
+  definition = response_hash['def'][0]['sseq'][0][0][1]['dt'][1][1][0]['t']
 if definition.nil?
   bad_words << word
 else
  puts word
  puts definition
- word_array << {'word' => word, 'definition' => definition}
+ word_array << {'word' => word, 'part' => functional_label, 'definition' => definition}
 end
 
 

@@ -4,6 +4,7 @@ require 'sinatra'
 require './definitions'
 require './thesaurus_definitions'
 require './thesaurus_synonyms'
+require './thesaurus_antonyms'
 
 $right_answers = 0
 $wrong_answers = 0
@@ -21,7 +22,7 @@ post '/' do
 
   case params['mode']
   when 'thesaurus'
-    $scope = $thesaurus_definitions
+    $scope = $thesaurus_definitions # these are the names of global variables (arrays of hashes) added using require above
     $mode_name = 'Thesaurus definitions'
   when 'synonyms'
     $scope = $thesaurus_synonyms
@@ -29,6 +30,9 @@ post '/' do
   when 'dictionary'
     $scope = $definitions
     $mode_name = 'Dictionary definitions'
+  when 'antonyms'
+    $scope = $thesaurus_antonyms
+    $mode_name = 'Thesaurus antonyms'
   end
 
   redirect '/quiz'
@@ -37,10 +41,10 @@ end
 get '/quiz' do
   $arr = []
   def unique_random
-    random_number = rand(2999)
+    random_number = rand(100)
     until $arr.length > 4
       if $arr.include?(random_number)
-        random_number = rand(300)
+        random_number = rand(100)
       else
         $arr << random_number
       end
