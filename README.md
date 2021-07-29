@@ -1,6 +1,7 @@
 # Oxford 3000 
 
-This is a simple [Sinatra](http://sinatrarb.com)-based quiz app, which checks definitions and synonyms of 3000 most important words to learn in English, also known as [Oxford 3000](https://www.oxfordlearnersdictionaries.com/about/oxford3000). I took the definitions from the Merriam-Webster dictionary and thesaurus.
+Welcome to the home repository of Oxford 3000, a very basic, [Sinatra](http://sinatrarb.com)-based, quiz app.  
+The app tests out your knowledge of 3000 most important words to learn in English, also known as [Oxford 3000](https://www.oxfordlearnersdictionaries.com/about/oxford3000). I took the definitions from the Merriam-Webster dictionary and thesaurus.
 
 ## How-to
 
