@@ -6,9 +6,16 @@
 
 <body>
 <h3>Your results</h3>
-<p>Right answers: <%=$right_answers %> (<%=$right_answers.to_f/4 * 100 %>%)</p>
-<p>Wrong answers: <%=$wrong_answers %></p>
+<p>Right answers: <%=$right_answers %> (<%=$right_answers.to_f/4 * 100 %>%).
+Wrong answers: <%=$wrong_answers %>.</p>
 
+<!-- <p><%= $wrong_answers_arr %></p>
+-->
+<h3>Corrections:</h3>
+<% $wrong_answers_arr.each do |answer| %>
+  <p><%="#{answer['word']}: #{answer['definition']}"%></p>
+<%end %>
+<br>
 <form method="post" action="/">
   <button name='reset' type="submit" value='true'>Go back</button>
 </form>

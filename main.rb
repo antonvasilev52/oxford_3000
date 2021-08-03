@@ -8,6 +8,8 @@ require './dictionaries/thesaurus_antonyms'
 
 $right_answers = 0
 $wrong_answers = 0
+$right_answers_arr = []
+$wrong_answers_arr = []
 
 get '/' do
   erb :index
@@ -17,6 +19,7 @@ post '/' do
   if params['reset'] == 'true'
     $right_answers = 0
     $wrong_answers = 0
+    $wrong_answers_arr = []
     redirect '/'
   end
 
@@ -41,10 +44,10 @@ end
 get '/quiz' do
   $arr = []
   def unique_random
-    random_number = rand(100)
+    random_number = rand($scope.length)
     until $arr.length > 4
       if $arr.include?(random_number)
-        random_number = rand(100)
+        random_number = rand($scope.length)
       else
         $arr << random_number
       end
@@ -66,6 +69,7 @@ post '/quiz' do
     $right_answers = $right_answers + 1
   else
     $wrong_answers += 1
+    $wrong_answers_arr << $word
   end
 
   if $right_answers + $wrong_answers == 4
