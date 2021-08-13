@@ -40,7 +40,7 @@ bad_words = []
   else
     puts word
     definition = definition[1][1][0]['t']
-    beauty_definition = definition.gsub(/{it}.*{\/it}/, "<a #{functional_label}>")
+    beauty_definition = definition.gsub(/{it}.*{\/it}/, "(#{functional_label})")
     word_array << {'word' => word, 'part' => functional_label, 'definition' => beauty_definition}
   end
   }

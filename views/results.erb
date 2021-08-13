@@ -6,18 +6,21 @@
 
 <body>
 <h3>Your results</h3>
-<p>Right answers: <%=$right_answers %> (<%=$right_answers.to_f/4 * 100 %>%).
+<p>Right answers: <%=$right_answers %> (<%=$right_answers.to_f/4 * 100 %>%) 👏🏻.
 Wrong answers: <%=$wrong_answers %>.</p>
 
 <!-- <p><%= $wrong_answers_arr %></p>
 -->
-<h3>Corrections:</h3>
+<% if $wrong_answers > 0 %>
+<h3>Corrections</h3>
 <% $wrong_answers_arr.each do |answer| %>
-  <p><%="#{answer['word']}: #{answer['definition']}"%></p>
+  <p><b><%="#{answer['word'].capitalize}"%></b>: <%="#{answer['definition']}"%></p>
 <%end %>
 <br>
+<% end %>
+
 <form method="post" action="/">
-  <button name='reset' type="submit" value='true'>Go back</button>
+  <button name='reset' type="submit" value='true'>Home</button>
 </form>
 
 <% puts "Hello, logs! #{$mode_name}. Right answers: #{$right_answers}" %>

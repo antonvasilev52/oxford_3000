@@ -25,4 +25,8 @@
     <orderEntry type="library" scope="PROVIDED" name="sinatra (v2.1.0, RVM: ruby-2.7.2 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.10, RVM: ruby-2.7.2 [global]) [gem]" level="application" />
   </component>
+  <component name="RModuleSettingsStorage">
+    <LOAD_PATH number="1" string0="$MODULE_DIR$/public" />
+    <I18N_FOLDERS number="0" />
+  </component>
 </module>

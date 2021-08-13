@@ -5,6 +5,7 @@ require './dictionaries/definitions'
 require './dictionaries/thesaurus_definitions'
 require './dictionaries/thesaurus_synonyms'
 require './dictionaries/thesaurus_antonyms'
+require './dictionaries/thesaurus_usage'
 
 $right_answers = 0
 $wrong_answers = 0
@@ -36,6 +37,9 @@ post '/' do
   when 'antonyms'
     $scope = $thesaurus_antonyms
     $mode_name = 'Thesaurus antonyms'
+  when 'usage'
+    $scope = $thesaurus_usage
+    $mode_name = 'Usage examples'
   end
 
   redirect '/quiz'
@@ -45,11 +49,25 @@ get '/quiz' do
   $arr = []
   def unique_random
     random_number = rand($scope.length)
-    until $arr.length > 4
-      if $arr.include?(random_number)
+    if $scope == $thesaurus_usage
+      until $arr.length > 3
+      if $arr.length == 0
+        $arr << random_number
+      elsif $arr.include?(random_number)
+        random_number = rand($scope.length)
+      elsif $scope[random_number]['part'] != $scope[$arr[0]]['part']
         random_number = rand($scope.length)
       else
-        $arr << random_number
+          $arr << random_number
+        end
+      end
+    else
+      until $arr.length > 3
+        if $arr.include?(random_number)
+          random_number = rand($scope.length)
+        else
+          $arr << random_number
+        end
       end
     end
   end
@@ -57,6 +75,7 @@ get '/quiz' do
   # "Hello #{$arr}"
   $word = $scope[$arr[0]]
   $right_definition = $scope[$arr[0]]['definition']
+
   # "Hello #{$arr} and #{$arr.shuffle}"
   # "Hello! Word is #{@word['word']}. Defintion is \"#{@word['definition']}\"."
   erb :quiz

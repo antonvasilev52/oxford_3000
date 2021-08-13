@@ -3,7 +3,7 @@
   <%= erb :header %>
 <body>
 
-<h2>Checking your knowledge of Oxford 3000 words</h2>
+<h2>Check your knowledge of Oxford 3000 words</h2>
 <p><a href="https://www.oxfordlearnersdictionaries.com/about/oxford3000" target="_blank">Oxford 3000</a> is a list of the 3000 most important words to learn in English.</p>
 <p>Select the check type:</p>
 <form method="post" action="/">
@@ -18,7 +18,10 @@
   <label for="synonyms">Synonyms</label><br>
 
   <input type="radio" id="antonyms" name="mode" value='antonyms'>
-  <label for="antonyms">Antonyms</label><br><br>
+  <label for="antonyms">Antonyms</label><br><br><!--
+
+  <input type="radio" id="usage" name="mode" value='usage'>
+  <label for="usage">Usage</label><br><br>-->
 
   <input type="submit" value="Go!">
 </form>

@@ -8,7 +8,8 @@
 <h2><%= $mode_name %></h2>
 
 <form method="post" action="/quiz">
-  <h4><%= $word['word'] %></h4>
+  <h4><%= $word['word'].capitalize %></h4>
+
 
   <% $arr.shuffle! %>
   <input type="radio" id="first" name="definition" value='<%= $scope[$arr[0]]['definition']%>' required>
@@ -28,7 +29,9 @@
 </form>
 
 <!--
-<p>Here: <%=$right_definition %></p> -->
+<p>Here: <%=$right_definition %></p>
+<p>Right answers: <%=$arr %></p>
+<p>Part: <%=$scope[$arr[2]]['part'] %></p> -->
 <p>Right answers: <%=$right_answers %></p>
 <p>Wrong answers: <%=$wrong_answers %></p>
 
