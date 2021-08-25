@@ -18,12 +18,25 @@
   <label for="synonyms">Synonyms</label><br>
 
   <input type="radio" id="antonyms" name="mode" value='antonyms'>
-  <label for="antonyms">Antonyms</label><br><br><!--
+  <label for="antonyms">Antonyms</label><br>
 
   <input type="radio" id="usage" name="mode" value='usage'>
-  <label for="usage">Usage</label><br><br>-->
+  <label for="usage">Usage</label><br><br>
 
   <input type="submit" value="Go!">
+
 </form>
+<br><br>
+<h5>Feedback or suggested corrections</h5>
+<form class = "feeback" method="post" action="/send">
+  <label for="name">Your name </label>
+  <input type="text" id="name" name="user">
+  <br>
+  <label for="message">Message </label>
+  <input type="text" id="message" name="message">
+  <br>
+  <input type="submit" value="Send">
+</form>
+
 
 </body>

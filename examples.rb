@@ -10,7 +10,7 @@ word_array = []
 bad_words = []
 
 
-  search_definitions = Proc.new { |word|
+  search_definitions = proc { |word|
 
   url = URI('https://www.dictionaryapi.com/api/v3/references/thesaurus/json/' + word + '?key=' + key)
 
@@ -28,8 +28,14 @@ bad_words = []
   response_hash = parsed_json[0]
 
   functional_label = response_hash['fl']
-  definition = response_hash['def'][0]['sseq'][0][0][1]['dt']
+  response = response_hash['def']
 
+  if response.nil?
+    puts "#{word}: no word"
+    bad_words << word
+    else
+  definition = response_hash['def'][0]['sseq'][0][0][1]['dt']
+  end
 
   if definition.nil?
     puts "#{word}: no examples"
@@ -41,16 +47,18 @@ bad_words = []
     puts word
     definition = definition[1][1][0]['t']
     beauty_definition = definition.gsub(/{it}.*{\/it}/, "(#{functional_label})")
-    word_array << {'word' => word, 'part' => functional_label, 'definition' => beauty_definition}
+    full_definition = definition.gsub(/{\/it}/, '').gsub(/{it}/, '')
+    # full_definition = full_definition.gsub(/{it}/, '')
+    word_array << {'word' => word, 'part' => functional_label, 'definition' => beauty_definition, 'full_definition' => full_definition}
   end
   }
 
-second = $oxford[1..20] # take N..M first words from Oxford 3000
+second = $oxford[201..400] # take N..M first words from Oxford 3000
 
 for i in second do
   search_definitions.call(i)
 end
 
 print word_array
-print "bad words:"
+print 'bad words:'
 print bad_words

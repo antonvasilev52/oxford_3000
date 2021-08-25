@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
+require 'pony'
 require './dictionaries/definitions'
 require './dictionaries/thesaurus_definitions'
 require './dictionaries/thesaurus_synonyms'
@@ -96,4 +97,18 @@ post '/quiz' do
   else
     redirect '/quiz'
   end
+end
+
+post '/send' do
+  # "My name is #{params[:user]}. And here is my message: #{params[:message]}"
+  Pony.mail(:to => 'antoniusvasilev@gmail.com', :via => :smtp, :from => 'antoniusvasilev@gmail.com', :subject => "Message from #{params[:user]}", :body => "Message: #{params[:message]}",               :via_options => {
+      :address => 'smtp.sendgrid.net',
+      :port => '587',
+      :domain => 'heroku.com',
+      :user_name => 'apikey',
+      :password => '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',
+      :authentication => :plain,
+      :enable_starttls_auto => true
+    } )
+  erb :feedback
 end

@@ -14,7 +14,11 @@ Wrong answers: <%=$wrong_answers %>.</p>
 <% if $wrong_answers > 0 %>
 <h3>Corrections</h3>
 <% $wrong_answers_arr.each do |answer| %>
+  <% if $scope == $thesaurus_usage %>
+      <p><b><%="#{answer['word'].capitalize}"%></b>: <%="#{answer['full_definition']}"%></p>
+  <% else %>
   <p><b><%="#{answer['word'].capitalize}"%></b>: <%="#{answer['definition']}"%></p>
+    <%end %>
 <%end %>
 <br>
 <% end %>
