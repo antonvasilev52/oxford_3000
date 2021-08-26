@@ -99,16 +99,18 @@ post '/quiz' do
   end
 end
 
+apipasswd = ENV['SENDMAILKEY']
+
 post '/send' do
   # "My name is #{params[:user]}. And here is my message: #{params[:message]}"
   Pony.mail(:to => 'antoniusvasilev@gmail.com', :via => :smtp, :from => 'antoniusvasilev@gmail.com', :subject => "Message from #{params[:user]}", :body => "Message: #{params[:message]}",               :via_options => {
-      :address => 'smtp.sendgrid.net',
-      :port => '587',
-      :domain => 'heroku.com',
-      :user_name => 'apikey',
-      :password => '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',
-      :authentication => :plain,
-      :enable_starttls_auto => true
-    } )
+    :address => 'smtp.sendgrid.net',
+    :port => '587',
+    :domain => 'heroku.com',
+    :user_name => 'sendmailonly',
+    :password => apipasswd,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  } )
   erb :feedback
 end
