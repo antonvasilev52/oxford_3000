@@ -78,7 +78,7 @@ get '/quiz' do
   $right_definition = $scope[$arr[0]]['definition']
 
   # "Hello #{$arr} and #{$arr.shuffle}"
-  # "Hello! Word is #{@word['word']}. Defintion is \"#{@word['definition']}\"."
+  # "Hello! Word is #{@word['word']}. Definition is \"#{@word['definition']}\"."
   erb :quiz
 
 end
@@ -99,18 +99,20 @@ post '/quiz' do
   end
 end
 
-apipasswd = ENV['SENDMAILKEY']
+
 
 post '/send' do
+  apipasswd = ENV['sendinblue']
   # "My name is #{params[:user]}. And here is my message: #{params[:message]}"
   Pony.mail(:to => 'antoniusvasilev@gmail.com', :via => :smtp, :from => 'antoniusvasilev@gmail.com', :subject => "Message from #{params[:user]}", :body => "Message: #{params[:message]}",               :via_options => {
-    :address => 'smtp.sendgrid.net',
+     :address => 'smtp-relay.sendinblue.com',
     :port => '587',
     :domain => 'heroku.com',
-    :user_name => 'sendmailonly',
+    :user_name => 'antoniusvasilev@gmail.com',
     :password => apipasswd,
     :authentication => :plain,
     :enable_starttls_auto => true
   } )
-  erb :feedback
+    erb :feedback
+  # "Kek #{apipasswd}"
 end

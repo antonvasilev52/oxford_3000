@@ -27,17 +27,30 @@
 
 </form>
 <br><br>
-<h5>Feedback or suggested corrections</h5>
-<form class = "feeback" method="post" action="/send">
-  <label for="name">Your name </label>
-  <input type="text" id="name" name="user">
-  <br>
-  <label for="message">Message </label>
 
-  <textarea id="message" name="message" placeholder='Let me know what you like or do not like or suggest an improvement or definition correction' onfocus="this.placeholder=''" onblur="this.placeholder='enter your text'"></textarea>
-  <br>
+<form id="feedback-main" class = "feeback" method="post" action="/send">
+  <p style="text-align: center;"><b>Feedback</b></p>
+  <label for="name">Your name </label><br>
+  <input type="text" id="name" name="user"><br><br>
+  <label for="message">Message </label><br>
+
+  <textarea id="message" name="message" rows="3"
+            placeholder='Leave any comment or suggest an improvement or definition correction'
+            onfocus="this.placeholder=''"
+            onblur="this.placeholder='Leave any comment or suggest an improvement or definition correction'"></textarea>
+  <br><br>
   <input type="submit" value="Send">
 </form>
 
+<script>
+    function toggle_visibility() {
+        let e = document.getElementById('feedback-main');
+        if(e.style.display == 'block')
+            e.style.display = 'none';
+        else
+            e.style.display = 'block';
+    }
+</script>
+<button id="popup" class="feedback-button" onclick="toggle_visibility()">Feedback</button>
 
 </body>

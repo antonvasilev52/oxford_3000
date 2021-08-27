@@ -52,19 +52,49 @@ a {
    color: pink;
 }
 
-.feeback{
-   font-size: 12px;
+
+#feedback-main{
+   font-size: 14px;
+   display:none;
+   float:left;
+   padding-top:0px;
+   position:fixed;
+   left:70%;
+   top:50%;
+   opacity: 0.5;
+   border: solid #cfd4bf 3px;
+   border-radius: 7px;
+   padding: 5px;
 }
+
+.feedback-button {
+   background-color: #1e1e1d;
+   border-radius: 5px;
+   -webkit-transform:rotate(-90deg);
+   font-weight:600;
+   color:white;
+   transform:rotate(-90deg);
+   -ms-transform:rotate(-90deg);
+   -moz-transform:rotate(-90deg);
+   text-align:center;
+   font-size:17px;
+   position:fixed;
+   right:-40px;
+   top:70%;
+   font-family: "Helvetica Neue", serif;
+}
+
 
 input[type='text'], textarea {
    background-color: #cfd4bf;
    border-radius: 5px;
    font-size: 14px;
    vertical-align: middle;
+
 }
 
 label {
-   width: 20px;
+
 }
 
 textarea::-webkit-input-placeholder { color: gray; font-size: 10px; }
