@@ -103,16 +103,17 @@ end
 
 post '/send' do
   apipasswd = ENV['sendinblue']
-  # "My name is #{params[:user]}. And here is my message: #{params[:message]}"
-  Pony.mail(:to => 'antoniusvasilev@gmail.com', :via => :smtp, :from => 'antoniusvasilev@gmail.com', :subject => "Message from #{params[:user]}", :body => "Message: #{params[:message]}",               :via_options => {
-     :address => 'smtp-relay.sendinblue.com',
-    :port => '587',
-    :domain => 'heroku.com',
-    :user_name => 'antoniusvasilev@gmail.com',
-    :password => apipasswd,
-    :authentication => :plain,
-    :enable_starttls_auto => true
+  Pony.mail(:to => 'antoniusvasilev@gmail.com', :via => :smtp, :from => 'antoniusvasilev@gmail.com', :subject => "Message from #{params[:user]}", :body => "Message: #{params[:message]}",
+            :via_options => {
+       :address => 'smtp-relay.sendinblue.com',
+      :port => '587',
+      :domain => 'heroku.com',
+      :user_name => 'antoniusvasilev@gmail.com',
+      :password => apipasswd,
+      :authentication => :plain,
+      :enable_starttls_auto => true
   } )
-    erb :feedback
+  erb :feedback
   # "Kek #{apipasswd}"
+  # "Lol: #{request.media_type}"
 end
