@@ -20,5 +20,5 @@ The Oxford_3000 app uses:
  :tiger2: Web server: Puma 5.3.2 ("Sweetnighter")  
  :books: Definitions from Merriam-Webster's Collegiate® Dictionary and Merriam-Webster's Collegiate® Thesaurus using [Merriam-Webster API](https://dictionaryapi.com/products/index)  
  :rocket: Deployment platform: [Heroku](http://heroku.com)  
- :art: Background image: a photo from [Unsplash](https://unsplash.com/photos/3ym6i13Y9LU) by Mike Tinnion  
+ :art: Background image: a photo from [Unsplash](https://unsplash.com/photos/tk9RQCq5eQo) by Kelly Sikkema  
 :gem: IDE: RubyMine
