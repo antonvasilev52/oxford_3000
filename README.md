@@ -23,4 +23,4 @@ The Oxford_3000 app uses:
  :books: Definitions from Merriam-Webster's Collegiate® Dictionary and Merriam-Webster's Collegiate® Thesaurus using [Merriam-Webster API](https://dictionaryapi.com/products/index)  
  :rocket: Deployment platform: [Heroku](http://heroku.com)  
  :art: Background image: a photo from [Unsplash](https://unsplash.com/photos/tk9RQCq5eQo) by Kelly Sikkema  
-:gem: IDE: RubyMine
+:gem: IDE: CotEditor and then–RubyMine
