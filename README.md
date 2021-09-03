@@ -15,6 +15,13 @@ The app tests out your knowledge of 3000 most important words to learn in Englis
 
 A live example is available https://oxford3000.herokuapp.com.
 
+:warning: If you want to use the **Feedback** widget for sending emails from users, you have to configure your own SMTP server. Put your STMP credentials in the `Pony.mail` method but DO NOT expose the API key password in a plain form. Bad guys can rapidly disclose it and use for sending email spam.  
+What you can do is:
+Export your API key passowrd as an environment variable, for example:
+    ```
+  export EMAILAPI=<your passowrd>
+    ```
+Use it in Pony: `:password => ENV['EMAILAPI']`
 
 ## Credits
 The Oxford_3000 app uses:  
