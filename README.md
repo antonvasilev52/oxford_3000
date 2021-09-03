@@ -23,4 +23,5 @@ The Oxford_3000 app uses:
  :books: Definitions from Merriam-Webster's Collegiate® Dictionary and Merriam-Webster's Collegiate® Thesaurus using [Merriam-Webster API](https://dictionaryapi.com/products/index)  
  :rocket: Deployment platform: [Heroku](http://heroku.com)  
  :art: Background image: a photo from [Unsplash](https://unsplash.com/photos/tk9RQCq5eQo) by Kelly Sikkema  
-:gem: IDE: CotEditor and then–RubyMine
+:gem: IDE: CotEditor and RubyMine (many thanks to JetBrains fro their [open source license](https://www.jetbrains.com/community/opensource/#support)).  
+:incoming_envelope: Email solution for feedback: [Pony](https://github.com/benprew/pony) + an SMTP server (such as [SendGrid](https://sendgrid.com) or [Sendinblue](https://www.sendinblue.com)).
