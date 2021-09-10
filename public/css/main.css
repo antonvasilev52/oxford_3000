@@ -14,6 +14,7 @@ body {
    body {
       margin: 5% 30% 0 32%;
    }
+
 }
 
 h2, h3 {
@@ -57,14 +58,13 @@ a {
    font-size: 14px;
    display:none;
    float:left;
-   padding-top:0px;
-   position:fixed;
+   position:absolute;
    left:70%;
-   top:50%;
+   bottom: 0;
    opacity: 0.5;
    border: solid #cfd4bf 3px;
    border-radius: 7px;
-   padding: 5px;
+   padding: 0 5px 5px 5px;
 }
 
 .feedback-button {
@@ -93,8 +93,9 @@ input[type='text'], textarea {
 
 }
 
-label {
-
-}
-
 textarea::-webkit-input-placeholder { color: gray; font-size: 10px; }
+
+.email{
+   padding: 0;
+   margin: 0;
+}

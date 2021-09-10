@@ -2,6 +2,7 @@ require 'uri'
 require 'net/http'
 require 'openssl'
 require 'json'
+require './dictionaries/thesaurus_antonyms.rb'
 
 require './common_words_array'
 key = '30308584-7bd9-4abf-8cf9-24acf3bc864a'
@@ -28,7 +29,9 @@ bad_words = []
   response_hash = parsed_json[0]
 
   definition = response_hash
+  functional_label = response_hash['fl']
 
+=begin
 
   if definition['meta'].nil?
     puts "#{word}: no meta"
@@ -42,14 +45,27 @@ bad_words = []
     puts word
   word_array << {'word' => word, 'definition' => definition['meta']['ants'][0][0]}
   end
+=end
+
+    if definition.nil?
+      puts "#{word}: definition is nill"
+      bad_words << word
+    else
+      puts word
+      word_array << {'part' => functional_label}
+    end
   }
 
-second = $oxford[2501..2999]
 
+
+second = $thesaurus_antonyms[1301..1516]
+a = 0
 for i in second do
-  search_definitions.call(i)
+  search_definitions.call(i['word'])
+  i['part'] = word_array[a]['part']
+  a+=1
 end
 
-print word_array
+print second
 print "bad words:"
 print bad_words

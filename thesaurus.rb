@@ -4,6 +4,7 @@ require 'openssl'
 require 'json'
 
 require './common_words_array'
+require './dictionaries/thesaurus_definitions.rb'
 key = '30308584-7bd9-4abf-8cf9-24acf3bc864a'
 
 word_array = []
@@ -28,6 +29,7 @@ bad_words = []
   response_hash = parsed_json[0]
 
   definition = response_hash['shortdef']
+  functional_label = response_hash['fl']
 
 
 
@@ -36,16 +38,18 @@ bad_words = []
     bad_words << word
   else
     puts word
-  word_array << {'word' => word, 'definition' => definition[0]}
+    word_array << {'part' => functional_label}
   end
   }
 
-second = $oxford[2995..2999]
-
+second = $thesaurus_definitions[2801..2852]
+a = 0
 for i in second do
-  search_definitions.call(i)
+  search_definitions.call(i['word'])
+  i['part'] = word_array[a]['part']
+  a+=1
 end
 
-print word_array
+print second
 print "bad words:"
 print bad_words

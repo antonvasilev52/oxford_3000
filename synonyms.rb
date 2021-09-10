@@ -4,6 +4,7 @@ require 'openssl'
 require 'json'
 
 require './common_words_array'
+require './dictionaries/thesaurus_synonyms.rb'
 key = '30308584-7bd9-4abf-8cf9-24acf3bc864a'
 
 word_array = []
@@ -27,24 +28,27 @@ bad_words = []
 
   response_hash = parsed_json[0]
 
-  definition = response_hash['meta']
+  definition = response_hash
+  functional_label = response_hash['fl']
 
 
   if definition.nil?
-    puts "#{word}: No synonyms or word"
+    puts "#{word}: definition is nill"
     bad_words << word
   else
     puts word
-  word_array << {'word' => word, 'definition' => definition['syns'][0][0]}
+    word_array << {'part' => functional_label}
   end
   }
 
-second = $oxford[2601..2999]
-
+second = $thesaurus_synonyms[2601..2855]
+a = 0
 for i in second do
-  search_definitions.call(i)
+  search_definitions.call(i['word'])
+  i['part'] = word_array[a]['part']
+  a+=1
 end
 
-print word_array
+print second
 print "bad words:"
 print bad_words

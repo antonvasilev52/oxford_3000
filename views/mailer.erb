@@ -1,0 +1,13 @@
+<h2 style="padding: 0; margin: 0;">Oxford3000: message from <span><%="#{params[:user]}"%></span>
+</h2>
+
+<h4 style="padding: 0; margin: 0;">Message</h4>
+<p style="padding: 0; margin: 0;"><%="#{params[:message]}"%></p>
+
+<h4 style="padding: 0; margin: 0;">Client IP address</h4>
+<p style="padding: 0; margin: 0;"><%="#{request.ip}"%></p>
+<h4 style="padding: 0; margin: 0;">Sent from</h4>
+<p style="padding: 0; margin: 0;"><%="#{request.user_agent}"%></p>
+<h4 style="padding: 0; margin: 0;">Date and time</h4>
+<p style="padding: 0; margin: 0;"><%="#{Time.now}"%></p>
+

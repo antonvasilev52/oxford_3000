@@ -50,27 +50,15 @@ get '/quiz' do
   $arr = []
   def unique_random
     random_number = rand($scope.length)
-    if $scope == $thesaurus_usage
       until $arr.length > 3
       if $arr.length == 0
         $arr << random_number
-      elsif $arr.include?(random_number)
-        random_number = rand($scope.length)
-      elsif $scope[random_number]['part'] != $scope[$arr[0]]['part']
+      elsif $arr.include?(random_number) || $scope[random_number]['part'] != $scope[$arr[0]]['part']
         random_number = rand($scope.length)
       else
           $arr << random_number
         end
       end
-    else
-      until $arr.length > 3
-        if $arr.include?(random_number)
-          random_number = rand($scope.length)
-        else
-          $arr << random_number
-        end
-      end
-    end
   end
   unique_random
   # "Hello #{$arr}"
@@ -103,7 +91,10 @@ end
 
 post '/send' do
   apipasswd = ENV['sendinblue']
-  Pony.mail(:to => 'antoniusvasilev@gmail.com', :via => :smtp, :from => 'antoniusvasilev@gmail.com', :subject => "Message from #{params[:user]}", :body => "Message: #{params[:message]}",
+  Pony.mail(:to => 'antoniusvasilev@gmail.com', :via => :smtp, :from => 'antoniusvasilev@gmail.com',
+            :subject => "Message from #{params[:user]}",
+            #:body => "Message: #{params[:message]}.\nIP: #{request.ip}.\nUser agent: #{request.user_agent}.",
+            :body => erb(:mailer),
             :via_options => {
        :address => 'smtp-relay.sendinblue.com',
       :port => '587',
