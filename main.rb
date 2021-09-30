@@ -13,11 +13,14 @@ $wrong_answers = 0
 $right_answers_arr = []
 $wrong_answers_arr = []
 
+
+# This is the main ROUTE
 get '/' do
   erb :index
 end
 
 post '/' do
+
   if params['reset'] == 'true'
     $right_answers = 0
     $wrong_answers = 0
@@ -48,7 +51,9 @@ end
 
 get '/quiz' do
   $arr = []
+  # This is the method to fill an array
   def unique_random
+    # Sets the publisher name for the list.
     random_number = rand($scope.length)
       until $arr.length > 3
       if $arr.length == 0
@@ -81,8 +86,10 @@ post '/quiz' do
   end
 
   if $right_answers + $wrong_answers == 4
+    sleep 1.5
     erb :results
   else
+    sleep 1.5
     redirect '/quiz'
   end
 end

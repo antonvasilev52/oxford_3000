@@ -6,15 +6,40 @@
 
 <body>
 <h2><%= $mode_name %></h2>
+<p style="display: none;" id="correct"><%=$right_definition %></p>
+<form method="post" action="/quiz" onsubmit="showCorrect()">
+  <script>function showCorrect(){
+            let x = document.getElementById("correct");
+            let congrats = document.getElementById("congrats");
+            let y = document.getElementsByTagName("label");
+            let selected = document.querySelector('input[name="definition"]:checked');
+            if (selected.value == x.innerText){
+                congrats.innerText = "Congrats! 💪";
+                selected.classList.add("correctCheckbox");
+            }
+            else {
+                selected.classList.add("wrongChekox");
+                congrats.innerText = "Give yourself another chance!";
+            }
 
-<form method="post" action="/quiz">
+            for (let i = 0; i < 4; i++) {
+                if (y[i].innerText == x.innerText) {
+                      y[i].classList.add("correctOption");
+                    }
+                else {
+                      y[i].classList.add("wrongOption");
+                }
+
+            }
+  }
+  </script>
   <h4><%= "#{$word['word'].capitalize} (#{$word['part']})" %></h4><!--
   <h4><%= "#{$word['word'].capitalize} (#{$word['part']})" %></h4>-->
 
 
   <% $arr.shuffle! %>
   <input type="radio" id="first" name="definition" value='<%= $scope[$arr[0]]['definition']%>' required>
-  <label for="first"><%= $scope[$arr[0]]['definition']%></label><br>
+  <label for="first" id = "firstlabel" ><%= $scope[$arr[0]]['definition']%></label><br>
 
   <input type="radio" id="second" name="definition" value='<%= $scope[$arr[1]]['definition']%>'>
   <label for="second"><%= $scope[$arr[1]]['definition']%></label><br>
@@ -29,10 +54,11 @@
   <input type="submit" value="Submit">
 </form>
 
+
 <!--
-<p>Here: <%=$right_definition %></p>
 <p>Right answers: <%=$arr %></p>
 <p>Part: <%=$scope[$arr[2]]['part'] %></p> -->
+<p id="congrats">🐴</p>
 <p>Right answers: <%=$right_answers %></p>
 <p>Wrong answers: <%=$wrong_answers %></p>
 

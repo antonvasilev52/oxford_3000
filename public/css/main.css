@@ -99,3 +99,18 @@ textarea::-webkit-input-placeholder { color: gray; font-size: 10px; }
    padding: 0;
    margin: 0;
 }
+.correctOption{
+   color: yellowgreen;
+}
+
+.correctCheckbox::before {
+   content: " ✅ ";
+}
+
+.wrongOption {
+   color: DimGray;
+}
+
+.wrongChekox::before {
+   content: " 🤢 ";
+}
