@@ -7,7 +7,7 @@ body {
    background-repeat: no-repeat;
    background-attachment: scroll;
    color: #c4b39f;
-   margin: 5% 20% 0 20%;
+   margin: 5% 20% 0;
 }
 
 @media screen and (max-width: 1160px) {
@@ -64,7 +64,7 @@ a {
    opacity: 0.5;
    border: solid #cfd4bf 3px;
    border-radius: 7px;
-   padding: 0 5px 5px 5px;
+   padding: 0 5px 5px;
 }
 
 .feedback-button {
