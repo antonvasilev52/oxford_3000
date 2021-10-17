@@ -1,3 +1,6 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/antonvasilev52/oxford_3000/badge)](https://www.codefactor.io/repository/github/antonvasilev52/oxford_3000)
+
+
 # Oxford 3000 
 
 Welcome to the home repository of Oxford 3000, a very basic, [Sinatra](http://sinatrarb.com)-based, quiz app.  
