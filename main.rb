@@ -14,11 +14,15 @@ $right_answers_arr = []
 $wrong_answers_arr = []
 
 
-# This is the main ROUTE
 get '/' do
   erb :index
 end
 
+##
+# This is your documentation.
+#
+# And then some.
+#
 post '/' do
 
   if params['reset'] == 'true'
@@ -49,6 +53,8 @@ post '/' do
   redirect '/quiz'
 end
 
+##
+# Hey! Another method!
 get '/quiz' do
   $arr = []
   # This is the method to fill an array

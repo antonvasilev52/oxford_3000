@@ -10,11 +10,17 @@ body {
    margin: 5% 20% 0;
 }
 
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 900px) {
    body {
       margin: 5% 30% 0 32%;
    }
+}
 
+@media screen and (max-width: 900px) {
+   body {
+      background-image: none;
+      background-color: #1e1e1d;
+   }
 }
 
 h2, h3 {
