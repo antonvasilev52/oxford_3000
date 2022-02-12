@@ -14,7 +14,7 @@ GEM
     odyssey (0.3.2)
     pony (1.13.1)
       mail (>= 2.0)
-    puma (5.5.2)
+    puma (5.6.2)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-protection (2.1.0)
