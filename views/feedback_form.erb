@@ -1,8 +1,13 @@
-<form id="feedback-main" class = "feeback" method="post" action="/send">
+<form id="feedback-main" class = "feedback" method="post" action="/send">
   <p style="position: absolute; top:-4%; right: 5%; cursor: pointer;" onclick="toggle_visibility()"><b>X</b></p>
-  <p style="text-align: center;"><b>Feedback</b></p>
-  <label for="name">Your name </label><br>
+  <h3 style="text-align: center;"><b>Feedback</b></h3>
+
+  <label for="name">Name </label><br>
   <input type="text" id="name" name="user"><br><br>
+
+  <label for="email">Email</label><br>
+  <input type="text" id="email" name="email" placeholder="If you expect a reply"><br><br>
+
   <label for="message">Message </label><br>
 
   <textarea id="message" name="message" rows="3"
