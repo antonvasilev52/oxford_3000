@@ -14,5 +14,5 @@
 <p style="padding: 0; margin: 0;"><%="#{request.user_agent}"%></p>
 
 <h4 style="padding: 0; margin: 0;">Date and time</h4>
-<p style="padding: 0; margin: 0;"><%="#{Time.now}"%></p>
+<p style="padding: 0; margin: 0;"><%="#{Time.now.strftime("%d %B %Y, %A, %H:%M:%S %:z %Z")}"%></p>
 
