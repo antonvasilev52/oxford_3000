@@ -16,7 +16,7 @@ The app tests out your knowledge of 3000 most important words to learn in Englis
     This will start the Sinatra web server. The app will be availabe on http://127.0.0.1:4567
 3. Go to http://127.0.0.1:4567 and enjoy the quiz :blush:
 
-A live example is available https://oxford3000.herokuapp.com.
+A live example is available https://oxford3000.herokuapp.com (The app is unavailable due to Heroku switching to paid mode. Will try to find an alternative).
 
 :warning: If you want to use the **Feedback** widget for sending emails from users, you have to configure your own SMTP server. Put your STMP credentials in the `Pony.mail` method but DO NOT expose the API key password in a plain form. Bad guys can rapidly disclose it and use for sending email spam.  
 What you can do is:
