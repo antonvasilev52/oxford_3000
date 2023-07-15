@@ -1,0 +1,31 @@
+<div id="credits">
+  <p>This app would not be possible without:</p>
+  <list>
+    <li>
+      Data from: <a href="https://dictionaryapi.com/products/index">Merriam-Webster API</a>
+    </li>
+    <li>
+      Web framework: Sinatra
+    </li>
+    <li>
+      Background image: from Unsplash by Kelly Sikkema
+    </li>
+    <li>
+      Email solution: Pony + SMTP server (Sendinblue)
+    </li>
+    <li>
+      IDE: RubyMine by JetBrains
+    </li>
+  </list>
+</div>
+
+<script>
+    function show_credits() {
+        let f = document.getElementById('credits');
+        if(f.style.display == 'block')
+            f.style.display = 'none';
+        else
+            f.style.display = 'block';
+    }
+</script>
+<button id="credits_button" onclick="show_credits()">Credits</button>
