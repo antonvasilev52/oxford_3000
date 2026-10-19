@@ -16,3 +16,5 @@
 <h4 style="padding: 0; margin: 0;">Date and time</h4>
 <p style="padding: 0; margin: 0;"><%="#{Time.now.strftime("%d %B %Y, %A, %H:%M:%S %:z %Z")}"%></p>
 
+<h4 style="padding: 0; margin: 0;">Language</h4>
+<p style="padding: 0; margin: 0;"><%= request.env['HTTP_ACCEPT_LANGUAGE'] %></p>
