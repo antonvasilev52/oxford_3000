@@ -1,7 +1,8 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
-require 'pony'
+require 'net/http'
+require 'json'
 require './dictionaries/definitions'
 require './dictionaries/thesaurus_definitions'
 require './dictionaries/thesaurus_synonyms'
@@ -103,21 +104,37 @@ end
 
 
 post '/send' do
-  apipasswd = ENV['sendinblue']
-  Pony.mail(:to => 'antoniusvasilev@gmail.com', :via => :smtp, :from => 'antoniusvasilev@gmail.com',
-            :subject => "Message from #{params[:user]}",
-            #:body => "Message: #{params[:message]}.\nIP: #{request.ip}.\nUser agent: #{request.user_agent}.",
-            :body => erb(:mailer),
-            :via_options => {
-       :address => 'smtp-relay.brevo.com',
-      :port => '587',
-      :domain => 'heroku.com',
-      :user_name => 'antoniusvasilev@gmail.com',
-      :password => apipasswd,
-      :authentication => :plain,
-      :enable_starttls_auto => true
-  } )
+  # Sends feedback via the Brevo HTTP API (port 443) instead of SMTP,
+  # because Render's free plan blocks outbound SMTP ports (25/465/587).
+  # So effectively this makes Pony 🐴 unnecessary
+  begin
+    payload = {
+      sender:      { name: 'Oxford 3000', email: 'antoniusvasilev@gmail.com' },
+      to:          [{ email: 'antoniusvasilev@gmail.com' }],
+      subject:     "Message from #{params[:user]}",
+      htmlContent: erb(:mailer)
+    }
+    reply_to = params[:email].to_s.strip
+    unless reply_to.empty? || reply_to !~ /\A[^@\s]+@[^@\s]+\.[^@\s]+\z/
+      payload[:replyTo] = { email: reply_to, name: params[:user] }
+    end
+
+    uri = URI('https://api.brevo.com/v3/smtp/email')
+    request = Net::HTTP::Post.new(uri.request_uri,
+                                  'Content-Type' => 'application/json',
+                                  'api-key'      => ENV['BREVO_API_KEY'].to_s)
+    request.body = payload.to_json
+
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.open_timeout = 10
+    http.read_timeout = 10
+    response = http.request(request)
+
+    warn "Brevo API error: #{response.code} #{response.body}" unless response.is_a?(Net::HTTPSuccess)
+  rescue StandardError => e
+    warn "Feedback email failed: #{e.class}: #{e.message}"
+  end
+
   erb :feedback
-  # "Kek #{apipasswd}"
-  # "Lol: #{request.media_type}"
 end

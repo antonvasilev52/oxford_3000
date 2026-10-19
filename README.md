@@ -20,20 +20,18 @@ A live example is available ~~https://oxford3000.herokuapp.com~~ https://oxford3
 It was really sad to move leave Heroku. I really liked Heroku because of how well their site and docs are organized.
 Moreover, Matz (Yukihiro Matsumoto, the founder of Ruby) worked there. But after their new paid model, I said to myself this project is too simple to pay for it. The good news is that Render is really cool and super easy to deploy. Would recommend it to my friends.
 
-:warning: If you want to use the **Feedback** widget for sending emails from users, you have to configure your own SMTP server. Put your STMP credentials in the `Pony.mail` method but DO NOT expose the API key password in a plain form. Bad guys can rapidly disclose it and use for sending email spam.  
-What you can do is:
-Export your API key passowrd as an environment variable, for example:
+:warning: The **Feedback** widget sends emails through the [Brevo HTTP API](https://developers.brevo.com/reference/send-transational-emails) (port 443), not SMTP — Render's free plan blocks outbound SMTP ports (25/465/587). To enable it, create a restricted Brevo API key (*Transactional email: All*) and export it:
     ```
-  export EMAILAPI=<your passowrd>
+  export BREVO_API_KEY=<your api key>
     ```
-Use it in Pony: `:password => ENV['EMAILAPI']`
+Set the same variable in your host's dashboard (on Render: *Service → Environment*). Never commit the key to git.
 
 ## Credits
 The Oxford_3000 app uses:  
  :microphone: Web framework: Sinatra 2.1.0  
  :tiger2: Web server: Puma 5.3.2 ("Sweetnighter")  
  :books: Definitions from Merriam-Webster's Collegiate® Dictionary and Merriam-Webster's Collegiate® Thesaurus using [Merriam-Webster API](https://dictionaryapi.com/products/index)  
- :rocket: Deployment platform: [Heroku](http://heroku.com)  
+ :rocket: Deployment platform: [Render](https://render.com)  
  :art: Background image: a photo from [Unsplash](https://unsplash.com/photos/tk9RQCq5eQo) by Kelly Sikkema  
 :gem: IDE: CotEditor and RubyMine (many thanks to JetBrains fro their [open source license](https://www.jetbrains.com/community/opensource/#support)).  
-:incoming_envelope: Email solution for feedback: [Pony](https://github.com/benprew/pony) + an SMTP server (such as [SendGrid](https://sendgrid.com) or [Sendinblue](https://www.sendinblue.com), renamed Brevo in 2023).
+:incoming_envelope: Email solution for feedback: [Brevo](https://www.brevo.com/) transactional email API (HTTPS), formerly Sendinblue.
