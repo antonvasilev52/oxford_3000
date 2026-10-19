@@ -109,7 +109,7 @@ post '/send' do
             #:body => "Message: #{params[:message]}.\nIP: #{request.ip}.\nUser agent: #{request.user_agent}.",
             :body => erb(:mailer),
             :via_options => {
-       :address => 'smtp-relay.sendinblue.com',
+       :address => 'smtp-relay.brevo.com',
       :port => '587',
       :domain => 'heroku.com',
       :user_name => 'antoniusvasilev@gmail.com',
