@@ -2,14 +2,29 @@ GEM
   remote: https://rubygems.org/
   specs:
     concurrent-ruby (1.1.9)
+    date (3.6.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     lemmatizer (0.2.2)
-    mail (2.7.1)
+    logger (1.7.0)
+    mail (2.9.1)
+      logger
       mini_mime (>= 0.1.1)
-    mini_mime (1.1.1)
+      net-imap
+      net-pop
+      net-smtp
+    mini_mime (1.1.5)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    net-imap (0.6.8)
+      date
+      net-protocol
+    net-pop (0.1.2)
+      net-protocol
+    net-protocol (0.4.0)
+      timeout
+    net-smtp (0.5.2)
+      net-protocol
     nio4r (2.7.5)
     odyssey (0.3.2)
     pony (1.13.1)
@@ -26,6 +41,7 @@ GEM
       rack-protection (= 2.2.0)
       tilt (~> 2.0)
     tilt (2.0.10)
+    timeout (0.6.1)
 
 PLATFORMS
   ruby
@@ -33,6 +49,7 @@ PLATFORMS
 DEPENDENCIES
   i18n
   lemmatizer
+  mail (= 2.9.1)
   odyssey
   pony
   puma (>= 5.5.1)
