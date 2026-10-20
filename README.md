@@ -1,5 +1,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/antonvasilev52/oxford_3000/badge)](https://www.codefactor.io/repository/github/antonvasilev52/oxford_3000)
 
+![GitHub code size](https://img.shields.io/github/languages/code-size/antonvasilev52/oxford_3000?style=plastic&logo=ruby&logoColor=red&labelColor=white&color=green)
+
 
 # Oxford 3000 
 
