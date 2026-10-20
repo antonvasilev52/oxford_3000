@@ -2,6 +2,9 @@
 
 ![GitHub code size](https://img.shields.io/github/languages/code-size/antonvasilev52/oxford_3000?style=plastic&logo=ruby&logoColor=red&labelColor=white&color=green)
 
+![Libraries.io dependency status](https://img.shields.io/librariesio/github/antonvasilev52/oxford_3000)
+
+
 
 # Oxford 3000 
 
