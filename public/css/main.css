@@ -86,6 +86,13 @@ a {
    padding: 0 5px 5px;
 }
 
+/* keep the credits list looking like it did before <list> became <ul> */
+#credits ul{
+   list-style: none;
+   margin: 0;
+   padding-left: 0;
+}
+
 #credits_button{
    background-color: #1e1e1d;
    border-radius: 5px;

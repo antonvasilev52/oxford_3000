@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
   <title>Results</title>
   <%= erb :header %>
@@ -29,8 +31,9 @@ Wrong answers: <%=$wrong_answers %>.</p>
 
 <% puts "Hello, logs! #{$mode_name}. Right answers: #{$right_answers}. User agent: #{request.user_agent}. IP: #{request.ip}" %>
 
-<img src='/img/cat.svg'>
+<img src='/img/cat.svg' alt='A drawing of a cat'>
 
 <%= erb :feedback_form %>
 
 </body>
+</html>
